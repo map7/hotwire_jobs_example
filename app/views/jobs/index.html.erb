@@ -2,6 +2,8 @@
 
 <h1>Jobs</h1>
 
+<%= turbo_stream_from :jobs %>
+
 <table>
   <thead>
     <tr>
@@ -11,19 +13,11 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.code %></td>
-        <td><%= job.name %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+  <tbody id="jobs">
+    <%= render @jobs %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Job', new_job_path %>
+<%= turbo_frame_tag 'new_job', src: new_job_path, target: :_top %>

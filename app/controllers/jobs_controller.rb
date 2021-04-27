@@ -25,6 +25,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
+        format.turbo_stream
         format.html { redirect_to @job, notice: "Job was successfully created." }
         format.json { render :show, status: :created, location: @job }
       else
