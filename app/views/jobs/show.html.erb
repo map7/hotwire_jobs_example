@@ -1,15 +1,11 @@
 <p id="notice"><%= notice %></p>
 <%= Time.now %>
 
-<p>
-  <strong>Code:</strong>
-  <%= @job.code %>
-</p>
+<%= turbo_stream_from @job %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @job.name %>
-</p>
+<%= turbo_frame_tag dom_id(@job) do %>
+  <%= render "job_show", job: @job %>
 
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+  <%= link_to 'Edit', edit_job_path(@job) %> |
+  <%= link_to 'Back', jobs_path, 'data-turbo-frame': :_top %>
+<% end %>
