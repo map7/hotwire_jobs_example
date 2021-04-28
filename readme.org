@@ -1,0 +1,9 @@
+* README
+
+** Purpose
+
+Hotwire CRUD example. Started a scaffold called jobs with code and name fields.
+
+ - Add new jobs to the listing without refresh (turbo stream)
+ - Broadcast changes between multiple browsers (broadcast)
+ - Edit in place within Job show               (turbo frame)
