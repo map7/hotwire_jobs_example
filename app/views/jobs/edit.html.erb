@@ -1,6 +1,8 @@
-<h1>Editing Job</h1>
+<%= turbo_frame_tag dom_id(@job) do %>
+  <h1>Editing Job</h1>
 
-<%= render 'form', job: @job %>
+  <%= render 'form', job: @job %>
 
-<%= link_to 'Show', @job %> |
-<%= link_to 'Back', jobs_path %>
+  <%= link_to 'Show', @job %> |
+  <%= link_to 'Back', jobs_path, 'data-turbo-frame': :_top %>
+<% end %>
